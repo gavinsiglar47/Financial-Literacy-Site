@@ -16,7 +16,7 @@ header {
     background: #1f3c88;
     color: white;
     text-align: center;
-    padding: 25px;
+    padding: 30px;
 }
 section {
     background: white;
@@ -32,7 +32,7 @@ h2 {
     background: #eef1f5;
     padding: 20px;
     border-radius: 8px;
-    margin: 15px 0;
+    margin: 20px 0;
 }
 button {
     background: #1f3c88;
@@ -41,14 +41,15 @@ button {
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
+    margin-right: 10px;
 }
 button:hover {
     background: #162d66;
 }
-input {
-    padding: 8px;
-    width: 100%;
-    margin: 5px 0;
+.explanation {
+    margin-top: 10px;
+    font-style: italic;
+    display: none;
 }
 footer {
     background: #1f3c88;
@@ -59,16 +60,8 @@ footer {
 </style>
 
 <script>
-function calculateBudget() {
-    let income = document.getElementById("income").value;
-    let expenses = document.getElementById("expenses").value;
-    let result = income - expenses;
-    document.getElementById("budgetResult").innerHTML =
-        result >= 0 ? "You saved $" + result : "You are overspending by $" + Math.abs(result);
-}
-
-function quizAnswer(correct) {
-    alert(correct ? "Correct! Great financial choice." : "Not quite. Think about long-term impact.");
+function showExplanation(id) {
+    document.getElementById(id).style.display = "block";
 }
 </script>
 
@@ -78,34 +71,35 @@ function quizAnswer(correct) {
 
 <header>
 <h1>Financial Literacy for High School Students</h1>
-<p>Building smart money habits early</p>
+<p>Helping teens build smart money habits</p>
+<p><strong>Created by Gavin Siglar</strong></p>
 </header>
 
 <section>
 <h2>Why Financial Literacy Matters</h2>
 <p>
-Financial literacy helps students understand how to budget, save, use credit wisely,
-and plan for the future. Without these skills, teens are more likely to struggle with
-debt and poor financial decisions as adults.
+Financial literacy gives students the knowledge and confidence to manage money responsibly.
+Without these skills, many young adults face debt, poor credit, and financial stress.
+Learning early helps students make smarter long-term decisions.
 </p>
 </section>
 
 <section>
-<h2>Core Financial Topics</h2>
+<h2>Core Financial Concepts</h2>
 
 <div class="card">
 <h3>Budgeting</h3>
-<p>Tracking income and expenses helps students stay in control of their money.</p>
+<p>Budgeting helps students track income and expenses so they don’t overspend.</p>
 </div>
 
 <div class="card">
 <h3>Saving & Emergency Funds</h3>
-<p>Saving prepares students for unexpected expenses and future goals.</p>
+<p>Emergency savings protect against unexpected costs like car repairs or medical bills.</p>
 </div>
 
 <div class="card">
 <h3>Credit & Debt</h3>
-<p>Understanding interest rates and credit scores prevents long-term debt.</p>
+<p>Understanding interest rates and credit scores helps avoid long-term financial trouble.</p>
 </div>
 
 <div class="card">
@@ -115,71 +109,102 @@ debt and poor financial decisions as adults.
 </section>
 
 <section>
-<h2>Interactive Scenarios</h2>
+<h2>Interactive Financial Scenarios</h2>
 
 <div class="card">
-<h3>You Just Got Paid</h3>
-<p>You earned $300 from a part-time job. What do you do?</p>
-<button onclick="alert('Good choice! Saving builds financial security.')">Save Half</button>
-<button onclick="alert('Spending everything leaves no backup money.')">Spend It All</button>
-</div>
+<h3>Scenario 1: You Just Got Paid</h3>
+<p>You earned $300 from a part-time job.</p>
+<button onclick="showExplanation('exp1')">Save Half</button>
+<button onclick="showExplanation('exp2')">Spend It All</button>
 
-<div class="card">
-<h3>Emergency Expense</h3>
-<p>Your phone breaks and costs $180.</p>
-<button onclick="alert('Emergency funds prevent debt.')">Use Savings</button>
-<button onclick="alert('Credit cards can add interest costs.')">Use Credit Card</button>
-</div>
-</section>
-
-<section>
-<h2>Budget Calculator</h2>
-<p>Enter your monthly income and expenses.</p>
-
-<input type="number" id="income" placeholder="Monthly Income ($)">
-<input type="number" id="expenses" placeholder="Monthly Expenses ($)">
-<button onclick="calculateBudget()">Calculate</button>
-
-<p id="budgetResult"></p>
-</section>
-
-<section>
-<h2>Quick Financial Quiz</h2>
-
-<div class="card">
-<p><strong>What is the smartest way to use a credit card?</strong></p>
-<button onclick="quizAnswer(true)">Pay full balance monthly</button>
-<button onclick="quizAnswer(false)">Pay minimum only</button>
-</div>
-
-<div class="card">
-<p><strong>Why is an emergency fund important?</strong></p>
-<button onclick="quizAnswer(true)">Covers unexpected expenses</button>
-<button onclick="quizAnswer(false)">For shopping only</button>
-</div>
-</section>
-
-<section>
-<h2>Our Goal</h2>
-<p>
-This website aims to help students graduate high school financially literate,
-confident, and prepared to make responsible financial decisions.
+<p id="exp1" class="explanation">
+Saving half helps build financial security and prepares you for emergencies or future goals.
 </p>
+<p id="exp2" class="explanation">
+Spending everything may feel good short-term but leaves no money for unexpected expenses.
+</p>
+</div>
+
+<div class="card">
+<h3>Scenario 2: Emergency Expense</h3>
+<p>Your phone breaks and costs $180 to repair.</p>
+<button onclick="showExplanation('exp3')">Use Emergency Savings</button>
+<button onclick="showExplanation('exp4')">Use Credit Card</button>
+
+<p id="exp3" class="explanation">
+Using emergency savings prevents debt and avoids paying interest.
+</p>
+<p id="exp4" class="explanation">
+Using a credit card may lead to interest charges if not paid off quickly.
+</p>
+</div>
+
+<div class="card">
+<h3>Scenario 3: First Credit Card</h3>
+<p>You receive an offer for a credit card with a 22% interest rate.</p>
+<button onclick="showExplanation('exp5')">Pay Full Balance Monthly</button>
+<button onclick="showExplanation('exp6')">Pay Minimum Only</button>
+
+<p id="exp5" class="explanation">
+Paying the full balance avoids interest and builds a strong credit score.
+</p>
+<p id="exp6" class="explanation">
+Paying only the minimum increases debt and costs more over time.
+</p>
+</div>
+
+<div class="card">
+<h3>Scenario 4: Saving for a Car</h3>
+<p>You want to buy a $6,000 car in one year.</p>
+<button onclick="showExplanation('exp7')">Save Monthly</button>
+<button onclick="showExplanation('exp8')">Take Out a Loan</button>
+
+<p id="exp7" class="explanation">
+Saving monthly avoids interest and builds strong financial habits.
+</p>
+<p id="exp8" class="explanation">
+Loans add interest, increasing the total cost of the car.
+</p>
+</div>
+
 </section>
 
 <section>
-<h2>References (APA Style)</h2>
+<h2>Frequently Asked Questions (FAQ)</h2>
+
+<div class="card">
+<h3>Why should high school students learn financial literacy?</h3>
+<p>It prepares students to manage money, avoid debt, and make informed financial decisions early.</p>
+</div>
+
+<div class="card">
+<h3>What happens if you don’t learn financial literacy?</h3>
+<p>Lack of financial knowledge often leads to debt, poor credit, and financial stress.</p>
+</div>
+
+<div class="card">
+<h3>Is budgeting really necessary?</h3>
+<p>Yes. Budgeting helps control spending and ensures money is available for needs and goals.</p>
+</div>
+
+<div class="card">
+<h3>How does this website help students?</h3>
+<p>It provides real-world scenarios, explanations, and tools to practice smart financial decisions.</p>
+</div>
+</section>
+
+<section>
+<h2>Project Purpose</h2>
 <p>
-Council for Economic Education. (2023). <em>Financial education requirements in U.S. high schools</em>.<br>
-National Financial Educators Council. (2022). <em>Financial literacy statistics</em>.<br>
-Jump$tart Coalition. (2023). <em>National standards in personal finance education</em>.<br>
-Federal Reserve. (2023). <em>Economic well-being of U.S. households</em>.
+This website is my senior capstone project focused on helping high school students
+become financially literate through interactive, real-world learning.
 </p>
+<p><strong>Mentor:</strong> Kareem McLemore</p>
 </section>
 
 <footer>
-<p>Capstone Project By Gavin Siglar</p>
+<p>Capstone Project by Gavin Siglar | Financial Literacy Education</p>
 </footer>
-<p><strong>Mentor:</strong> Kareem McLemore</p>
+
 </body>
 </html>
