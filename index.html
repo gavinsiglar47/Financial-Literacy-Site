@@ -20,28 +20,21 @@ header {
     text-align: center;
     padding: 50px 20px;
 }
-header h1 {
-    margin-bottom: 10px;
-}
-header p {
-    font-size: 1.1em;
-}
 
 /* Sections */
 section {
     max-width: 1100px;
     margin: 40px auto;
     padding: 25px;
+    border-radius: 12px;
 }
 
 section:nth-child(even) {
     background: #ffffff;
-    border-radius: 12px;
 }
 
 section:nth-child(odd) {
     background: #eef2f7;
-    border-radius: 12px;
 }
 
 .section-title {
@@ -66,12 +59,11 @@ section:nth-child(odd) {
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
 }
 
 .card h3 {
@@ -130,7 +122,7 @@ function showExplanation(id) {
         <h2>Why Financial Literacy Matters</h2>
     </div>
     <p>
-        Financial literacy helps students make informed decisions about money before they face real financial responsibilities. 
+        Financial literacy helps students make informed decisions before they face real financial responsibilities. 
         Without these skills, many young adults struggle with debt, poor credit, and financial stress. 
         Learning early builds independence, confidence, and long term stability.
     </p>
@@ -139,37 +131,43 @@ function showExplanation(id) {
 <section>
     <div class="section-title">
         <h2>Core Financial Concepts</h2>
-        <p>Understanding these concepts can prevent major financial mistakes later in life.</p>
     </div>
 
     <div class="grid">
 
         <div class="card">
             <h3>Budgeting</h3>
-            <p><strong>Why it matters:</strong> Budgeting helps you control your money instead of losing track of it.</p>
-            <p><strong>How to do it:</strong> Track income, list expenses, and limit unnecessary spending.</p>
-            <p><strong>If you don’t:</strong> You may overspend and struggle to save.</p>
+            <p>Helps control spending and plan for needs.</p>
         </div>
 
         <div class="card">
             <h3>Saving</h3>
-            <p><strong>Why it matters:</strong> Savings protect you from unexpected expenses.</p>
-            <p><strong>How to do it:</strong> Save a portion of every paycheck.</p>
-            <p><strong>If you don’t:</strong> You may rely on debt when problems happen.</p>
+            <p>Protects against emergencies and future expenses.</p>
         </div>
 
         <div class="card">
             <h3>Credit</h3>
-            <p><strong>Why it matters:</strong> Credit affects loans, housing, and major purchases.</p>
-            <p><strong>How to manage it:</strong> Pay balances fully and avoid unnecessary debt.</p>
-            <p><strong>If you don’t:</strong> Your credit score may drop.</p>
+            <p>Impacts loans, housing, and financial opportunities.</p>
         </div>
 
         <div class="card">
             <h3>Investing</h3>
-            <p><strong>Why it matters:</strong> Investing helps your money grow over time.</p>
-            <p><strong>How to start:</strong> Learn basics like stocks and long term growth.</p>
-            <p><strong>If you don’t:</strong> You may miss wealth building opportunities.</p>
+            <p>Allows money to grow over time.</p>
+        </div>
+
+        <div class="card">
+            <h3>Income</h3>
+            <p>Understanding earnings helps manage money better.</p>
+        </div>
+
+        <div class="card">
+            <h3>Taxes</h3>
+            <p>Knowing how taxes work prevents financial confusion later.</p>
+        </div>
+
+        <div class="card">
+            <h3>Financial Planning</h3>
+            <p>Helps set goals and prepare for the future.</p>
         </div>
 
     </div>
@@ -178,72 +176,64 @@ function showExplanation(id) {
 <section>
     <div class="section-title">
         <h2>Interactive Financial Scenarios</h2>
-        <p>Choose an option to see how decisions affect your future.</p>
     </div>
 
     <div class="card">
         <h3>You Just Got Paid</h3>
-        <p>You earned $300.</p>
         <button onclick="showExplanation('s1a')">Save Half</button>
-        <button onclick="showExplanation('s1b')">Spend It All</button>
-        <p id="s1a" class="explanation">Saving builds financial stability.</p>
-        <p id="s1b" class="explanation">Spending everything creates bad habits.</p>
+        <button onclick="showExplanation('s1b')">Spend All</button>
+        <p id="s1a" class="explanation">Saving builds long term financial stability.</p>
+        <p id="s1b" class="explanation">Spending everything creates poor habits.</p>
     </div>
 
     <div class="card">
         <h3>Buying Shoes</h3>
-        <p>You want $150 shoes.</p>
         <button onclick="showExplanation('s2a')">Buy Them</button>
         <button onclick="showExplanation('s2b')">Wait</button>
-        <p id="s2a" class="explanation">Spending leaves you with little money.</p>
+        <p id="s2a" class="explanation">Spending reduces your available money.</p>
         <p id="s2b" class="explanation">Waiting builds discipline.</p>
     </div>
 
     <div class="card">
         <h3>Credit Card</h3>
-        <p>You get your first credit card.</p>
         <button onclick="showExplanation('s3a')">Pay Full</button>
         <button onclick="showExplanation('s3b')">Pay Minimum</button>
         <p id="s3a" class="explanation">Avoids interest and builds credit.</p>
-        <p id="s3b" class="explanation">Leads to growing debt.</p>
+        <p id="s3b" class="explanation">Debt grows over time.</p>
     </div>
 
     <div class="card">
-        <h3>Car Repair</h3>
-        <p>You need $300 for repairs.</p>
+        <h3>Unexpected Expense</h3>
         <button onclick="showExplanation('s4a')">Use Savings</button>
         <button onclick="showExplanation('s4b')">Use Credit</button>
         <p id="s4a" class="explanation">Savings prevent debt.</p>
-        <p id="s4b" class="explanation">Credit adds extra cost.</p>
-    </div>
-</section>
-
-<section>
-    <div class="section-title">
-        <h2>Quick Financial Tips</h2>
+        <p id="s4b" class="explanation">Credit increases cost.</p>
     </div>
 
-    <div class="grid">
-        <div class="card">
-            <h3>Save First</h3>
-            <p>Always save before spending.</p>
-        </div>
-
-        <div class="card">
-            <h3>Avoid Impulse Buying</h3>
-            <p>Wait before making purchases.</p>
-        </div>
-
-        <div class="card">
-            <h3>Track Spending</h3>
-            <p>Know where your money goes.</p>
-        </div>
-
-        <div class="card">
-            <h3>Understand Interest</h3>
-            <p>Interest can help or hurt you.</p>
-        </div>
+    <div class="card">
+        <h3>Budget Decision</h3>
+        <button onclick="showExplanation('s5a')">Track Spending</button>
+        <button onclick="showExplanation('s5b')">Ignore Budget</button>
+        <p id="s5a" class="explanation">Tracking helps control money.</p>
+        <p id="s5b" class="explanation">Ignoring leads to overspending.</p>
     </div>
+
+    <div class="card">
+        <h3>Saving for Goal</h3>
+        <button onclick="showExplanation('s6a')">Save Weekly</button>
+        <button onclick="showExplanation('s6b')">Wait Until Later</button>
+        <p id="s6a" class="explanation">Consistency builds success.</p>
+        <p id="s6b" class="explanation">Waiting delays progress.</p>
+    </div>
+
+    <div class="card">
+        <h3>Income Use</h3>
+        <button onclick="showExplanation('s7a')">Split Money</button>
+        <button onclick="showExplanation('s7b')">Spend Freely</button>
+        <p id="s7a" class="explanation">Splitting money builds balance.</p>
+        <p id="s7b" class="explanation">Spending freely leads to instability.</p>
+    </div>
+
 </section>
 
 <section>
@@ -253,23 +243,18 @@ function showExplanation(id) {
 
     <div class="grid">
         <div class="card">
-            <h3>Why learn this?</h3>
-            <p>It prevents financial mistakes later in life.</p>
+            <h3>Why learn this early?</h3>
+            <p>It prevents costly mistakes later.</p>
         </div>
 
         <div class="card">
-            <h3>Is it used daily?</h3>
-            <p>Yes, money decisions happen every day.</p>
+            <h3>Is it important?</h3>
+            <p>Yes. It affects daily decisions.</p>
         </div>
 
         <div class="card">
-            <h3>What if I don’t learn?</h3>
-            <p>You may struggle with debt and poor habits.</p>
-        </div>
-
-        <div class="card">
-            <h3>How do I start?</h3>
-            <p>Start budgeting and saving now.</p>
+            <h3>What happens if I do not learn?</h3>
+            <p>You may struggle financially.</p>
         </div>
     </div>
 </section>
@@ -279,14 +264,13 @@ function showExplanation(id) {
         <h2>Project Purpose</h2>
     </div>
     <p>
-        This website is my senior capstone project focused on helping high school students
-        develop financial literacy skills through real world application.
+        This website is my senior capstone project focused on helping students build financial literacy skills.
     </p>
     <p><strong>Mentor:</strong> Kareem McLemore</p>
 </section>
 
 <footer>
-    <p>Capstone Project by Gavin Siglar | Financial Literacy Education</p>
+    <p>Capstone Project by Gavin Siglar</p>
 </footer>
 
 </body>
