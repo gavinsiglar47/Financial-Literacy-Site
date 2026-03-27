@@ -31,35 +31,54 @@ header p {
 section {
     max-width: 1100px;
     margin: 40px auto;
-    padding: 20px;
+    padding: 25px;
 }
+
+section:nth-child(even) {
+    background: #ffffff;
+    border-radius: 12px;
+}
+
+section:nth-child(odd) {
+    background: #eef2f7;
+    border-radius: 12px;
+}
+
 .section-title {
     text-align: center;
     margin-bottom: 30px;
 }
+
 .section-title h2 {
     color: #1f3c88;
-    margin-bottom: 10px;
 }
 
-/* Cards */
+/* Grid */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 25px;
 }
 
+/* Cards */
 .card {
     background: white;
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
 .card h3 {
     color: #1f3c88;
 }
 
-/* Scenario buttons */
+/* Buttons */
 button {
     background: #1f3c88;
     color: white;
@@ -70,6 +89,7 @@ button {
     margin-top: 10px;
     margin-right: 5px;
 }
+
 button:hover {
     background: #162d66;
 }
@@ -110,10 +130,9 @@ function showExplanation(id) {
         <h2>Why Financial Literacy Matters</h2>
     </div>
     <p>
-        Financial literacy helps students make informed decisions about money before
-        they are faced with real financial responsibilities. Without these skills,
-        many young adults struggle with debt, poor credit, and financial stress.
-        Learning early builds independence, confidence, and long-term stability.
+        Financial literacy helps students make informed decisions about money before they face real financial responsibilities. 
+        Without these skills, many young adults struggle with debt, poor credit, and financial stress. 
+        Learning early builds independence, confidence, and long term stability.
     </p>
 </section>
 
@@ -127,30 +146,30 @@ function showExplanation(id) {
 
         <div class="card">
             <h3>Budgeting</h3>
-            <p><strong>Why it matters:</strong> Budgeting helps you control where your money goes instead of wondering where it went.</p>
-            <p><strong>How to do it:</strong> Track income, list expenses, and set spending limits for categories like food and entertainment.</p>
-            <p><strong>If you don’t:</strong> You may overspend, rely on credit, and struggle to save for emergencies or goals.</p>
+            <p><strong>Why it matters:</strong> Budgeting helps you control your money instead of losing track of it.</p>
+            <p><strong>How to do it:</strong> Track income, list expenses, and limit unnecessary spending.</p>
+            <p><strong>If you don’t:</strong> You may overspend and struggle to save.</p>
         </div>
 
         <div class="card">
-            <h3>Saving & Emergency Funds</h3>
-            <p><strong>Why it matters:</strong> Savings protect you from unexpected expenses like car repairs or medical bills.</p>
-            <p><strong>How to do it:</strong> Save a portion of every paycheck and keep emergency money separate from spending money.</p>
-            <p><strong>If you don’t:</strong> You may be forced to borrow money or use credit cards, increasing debt.</p>
+            <h3>Saving</h3>
+            <p><strong>Why it matters:</strong> Savings protect you from unexpected expenses.</p>
+            <p><strong>How to do it:</strong> Save a portion of every paycheck.</p>
+            <p><strong>If you don’t:</strong> You may rely on debt when problems happen.</p>
         </div>
 
         <div class="card">
-            <h3>Credit & Debt</h3>
-            <p><strong>Why it matters:</strong> Credit affects your ability to rent apartments, buy cars, and qualify for loans.</p>
-            <p><strong>How to manage it:</strong> Pay balances in full, avoid unnecessary debt, and understand interest rates.</p>
-            <p><strong>If you don’t:</strong> Debt grows quickly due to interest, damaging your credit score.</p>
+            <h3>Credit</h3>
+            <p><strong>Why it matters:</strong> Credit affects loans, housing, and major purchases.</p>
+            <p><strong>How to manage it:</strong> Pay balances fully and avoid unnecessary debt.</p>
+            <p><strong>If you don’t:</strong> Your credit score may drop.</p>
         </div>
 
         <div class="card">
-            <h3>Investing Basics</h3>
-            <p><strong>Why it matters:</strong> Investing allows money to grow over time instead of losing value to inflation.</p>
-            <p><strong>How to start:</strong> Learn about stocks, index funds, and long-term investing strategies.</p>
-            <p><strong>If you don’t:</strong> You may miss opportunities to build wealth and financial security.</p>
+            <h3>Investing</h3>
+            <p><strong>Why it matters:</strong> Investing helps your money grow over time.</p>
+            <p><strong>How to start:</strong> Learn basics like stocks and long term growth.</p>
+            <p><strong>If you don’t:</strong> You may miss wealth building opportunities.</p>
         </div>
 
     </div>
@@ -159,17 +178,71 @@ function showExplanation(id) {
 <section>
     <div class="section-title">
         <h2>Interactive Financial Scenarios</h2>
-        <p>Choose an option to see how financial decisions impact your future.</p>
+        <p>Choose an option to see how decisions affect your future.</p>
     </div>
 
     <div class="card">
         <h3>You Just Got Paid</h3>
-        <p>You earned $300 from a part-time job.</p>
+        <p>You earned $300.</p>
         <button onclick="showExplanation('s1a')">Save Half</button>
         <button onclick="showExplanation('s1b')">Spend It All</button>
+        <p id="s1a" class="explanation">Saving builds financial stability.</p>
+        <p id="s1b" class="explanation">Spending everything creates bad habits.</p>
+    </div>
 
-        <p id="s1a" class="explanation">Saving builds security and prepares you for emergencies or future goals.</p>
-        <p id="s1b" class="explanation">Spending everything leaves no backup money if something goes wrong.</p>
+    <div class="card">
+        <h3>Buying Shoes</h3>
+        <p>You want $150 shoes.</p>
+        <button onclick="showExplanation('s2a')">Buy Them</button>
+        <button onclick="showExplanation('s2b')">Wait</button>
+        <p id="s2a" class="explanation">Spending leaves you with little money.</p>
+        <p id="s2b" class="explanation">Waiting builds discipline.</p>
+    </div>
+
+    <div class="card">
+        <h3>Credit Card</h3>
+        <p>You get your first credit card.</p>
+        <button onclick="showExplanation('s3a')">Pay Full</button>
+        <button onclick="showExplanation('s3b')">Pay Minimum</button>
+        <p id="s3a" class="explanation">Avoids interest and builds credit.</p>
+        <p id="s3b" class="explanation">Leads to growing debt.</p>
+    </div>
+
+    <div class="card">
+        <h3>Car Repair</h3>
+        <p>You need $300 for repairs.</p>
+        <button onclick="showExplanation('s4a')">Use Savings</button>
+        <button onclick="showExplanation('s4b')">Use Credit</button>
+        <p id="s4a" class="explanation">Savings prevent debt.</p>
+        <p id="s4b" class="explanation">Credit adds extra cost.</p>
+    </div>
+</section>
+
+<section>
+    <div class="section-title">
+        <h2>Quick Financial Tips</h2>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <h3>Save First</h3>
+            <p>Always save before spending.</p>
+        </div>
+
+        <div class="card">
+            <h3>Avoid Impulse Buying</h3>
+            <p>Wait before making purchases.</p>
+        </div>
+
+        <div class="card">
+            <h3>Track Spending</h3>
+            <p>Know where your money goes.</p>
+        </div>
+
+        <div class="card">
+            <h3>Understand Interest</h3>
+            <p>Interest can help or hurt you.</p>
+        </div>
     </div>
 </section>
 
@@ -180,16 +253,23 @@ function showExplanation(id) {
 
     <div class="grid">
         <div class="card">
-            <h3>Why should teens learn this now?</h3>
-            <p>Learning early prevents mistakes that are costly and difficult to fix later.</p>
+            <h3>Why learn this?</h3>
+            <p>It prevents financial mistakes later in life.</p>
         </div>
+
         <div class="card">
-            <h3>Is financial literacy really used daily?</h3>
-            <p>Yes. Budgeting, saving, and spending decisions happen almost every day.</p>
+            <h3>Is it used daily?</h3>
+            <p>Yes, money decisions happen every day.</p>
         </div>
+
         <div class="card">
-            <h3>Can financial mistakes affect my future?</h3>
-            <p>Yes. Poor credit and debt can limit job, housing, and loan opportunities.</p>
+            <h3>What if I don’t learn?</h3>
+            <p>You may struggle with debt and poor habits.</p>
+        </div>
+
+        <div class="card">
+            <h3>How do I start?</h3>
+            <p>Start budgeting and saving now.</p>
         </div>
     </div>
 </section>
@@ -200,7 +280,7 @@ function showExplanation(id) {
     </div>
     <p>
         This website is my senior capstone project focused on helping high school students
-        develop strong financial habits through education and real-world application.
+        develop financial literacy skills through real world application.
     </p>
     <p><strong>Mentor:</strong> Kareem McLemore</p>
 </section>
